@@ -20,8 +20,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule, 
     RouterModule.forRoot([
+      {
+        path:'',
+        component : HomeComponent
+      },
     {
-      path:'' , 
+      path:'managequiz' , 
       component : ManageQuizComponent 
     }, 
     { 
