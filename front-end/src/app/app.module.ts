@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router'
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -18,24 +18,24 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     RouterModule.forRoot([
       {
-        path:'',
-        component : HomeComponent
+        path: '',
+        component: HomeComponent
       },
-    {
-      path:'managequiz' , 
-      component : ManageQuizComponent 
-    }, 
-    { 
-      path:'home' ,
-      component:HomeComponent
-    } ,
-    {
-      path:'**',
-      component:NotFoundComponent
-    }
+      {
+        path: 'managequiz',
+        component: ManageQuizComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
 
     ])
   ],
