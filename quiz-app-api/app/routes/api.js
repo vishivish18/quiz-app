@@ -15,6 +15,11 @@ apiRoutes = function(router) {
 
     // ## Analytics
     router.get('/analytics/users', api.analytics.totalCountOfUsers);
+
+    // ## Test
+    router.get('/test', api.test.testFunction);
+    router.get('/another', api.test.anotherFunction);
+    router.get('/create', api.test.create);
     
 
     return router;
