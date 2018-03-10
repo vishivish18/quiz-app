@@ -3,10 +3,10 @@ import {FormGroup , FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class HomeComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   loginForm: FormGroup ;
   constructor(private _formBuilder: FormBuilder) { }
@@ -32,8 +32,6 @@ export class HomeComponent implements OnInit {
   }
 
   submit(loginForm) {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     const loginData = {
       userName : this.loginForm.controls.userName.value as string ,
       emailAddress : this.loginForm.controls.emailAddress.value as string ,

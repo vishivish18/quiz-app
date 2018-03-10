@@ -18,6 +18,13 @@
     align-items: center;
     justify-content: space-around;
   }
+
+  .edit-container{
+    display: flex;
+    flex-direction: column;
+  }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 /* .Align-form{
     layout-align : center ; 
 } */

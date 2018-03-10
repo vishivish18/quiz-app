@@ -6,6 +6,11 @@ var client = db.Schema({
         required: true,
         unique: true
     },
+    displayName: {
+        type: String,
+        required: true,
+        unique: true
+    },
     domain: {
         type: String
     },
@@ -64,8 +69,12 @@ var client = db.Schema({
             default: false
 
         }
-    }],
+    }],  
     createdAt: {
+        type: Date,
+        default: new Date(),
+    },
+    updatedAt: {
         type: Date,
         default: new Date(),
     }

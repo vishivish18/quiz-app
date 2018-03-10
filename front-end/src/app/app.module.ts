@@ -4,27 +4,29 @@ import {RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 import { ManageQuizComponent } from './manage-quiz/manage-quiz.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {SampleComponent} from './sample/sample.component';
+
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormField, MatFormFieldModule} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatSelectModule} from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
 
+// Material Imports
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
+  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
+  MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    HomeComponent,
+    RegisterComponent,
     ManageQuizComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SampleComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +37,19 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     RouterModule.forRoot([
       {
         path: '',
-        component : HomeComponent
+        component: RegisterComponent
       },
     {
       path: 'managequiz',
@@ -47,13 +57,16 @@ import {MatButtonModule} from '@angular/material/button';
     },
     {
       path: 'home' ,
-      component: HomeComponent
+      component: RegisterComponent
+    } ,
+    {
+      path: 'sample' ,
+      component: SampleComponent
     } ,
     {
       path: '**',
       component: NotFoundComponent
     }
-
     ])
   ],
   providers: [],
