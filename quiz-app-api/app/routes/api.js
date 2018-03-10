@@ -15,7 +15,18 @@ apiRoutes = function(router) {
 
     // ## Analytics
     router.get('/analytics/users', api.analytics.totalCountOfUsers);
-    
+
+    // ## Test    
+    router.get('/user/create', api.user.create);
+    router.get('/user/list', api.user.list);
+    router.get('/user/:_id', api.user.show);
+
+
+    router.get('/quiz/create', api.quiz.create);
+    router.get('/quiz/list', api.quiz.list);
+    router.get('/quiz/:_id', api.quiz.show);
+    //router.get('/quiz/update', api.quiz.update);
+
 
     return router;
 };

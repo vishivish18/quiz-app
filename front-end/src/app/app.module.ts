@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
+
 import {AppComponent} from './app.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {HomeComponent} from './home/home.component';
@@ -31,8 +32,8 @@ import {MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, M
     ReactiveFormsModule,
     RouterModule.forRoot([
       {
-        path:'',
-        component : HomeComponent
+        path: '',
+        component: HomeComponent
       },
     {
       path:'managequiz' , 
