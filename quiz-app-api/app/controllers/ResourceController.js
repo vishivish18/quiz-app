@@ -4,10 +4,6 @@ class ResourceController {
         this.model = model;
     }
 
-    returnName() {
-        return this.name;
-    }
-
     create(data) {
         return new Promise((resolve, reject) => {
             var model = new this.model(data)
@@ -21,15 +17,32 @@ class ResourceController {
     }
 
     index() {
-
+        return new Promise((resolve, reject) => {
+            var model = this.model
+            model.find({}, (err, response) => {
+                if (err) {
+                    reject(err)
+                }
+                resolve(response);
+            })
+        })
     }
 
-    show() {
-
+    show(id) {
+        return new Promise((resolve, reject) => {
+            var model = this.model
+            model.find({_id:id}, (err, response) => {
+                if (err) {
+                    reject(err)
+                }
+                resolve(response);
+            })
+        })        
     }
 
-    update() {
-
+    update(req, res) {
+    	console.log('update called');
+    	res.send('update called from resource controller')
     }
 
     delete() {

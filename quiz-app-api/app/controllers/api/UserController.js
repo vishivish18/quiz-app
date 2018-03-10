@@ -6,15 +6,26 @@ class UserController extends ResourceController {
     constructor(...args) {
         super(...args);
     }
-
+    
 }
 var uc = new UserController(User);
 user = {    
-    create: function(req,res) {
+    create: (req, res) =>{
         uc.create({ "name": "Another controller", "email": "vishal@jatana.ai" }).then((result)=>{
             res.send(result);
         });        
+    },
+    list: (req, res) =>{
+        uc.index().then((result)=>{
+            res.send(result);
+        });        
+    },
+    show: (req, res) =>{
+        uc.show(req.params._id).then((result)=>{
+            res.send(result);
+        });        
     }
+
 
 
 }
