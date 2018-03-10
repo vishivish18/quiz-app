@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
     limit: 153791147
 }));
 
-var port = process.env.PORT || 1818
+var port = process.env.PORT || 1818;
 
 var server = app.listen(port, function() {
     console.log('Magic begins at port ', port);
@@ -32,7 +32,11 @@ var server = app.listen(port, function() {
 console.log("Base for API", routes.apiBaseUri);
 console.log("Base for Admin", routes.adminBaseUri);
 
-app.use(require('./config/auth'))
+app.get('/ignition', function(req, res){
+	res.send('App is running');
+});
+
+app.use(require('./config/auth'));
 
 // API specific Routes
 app.use(routes.apiBaseUri, routes.api(app));
@@ -40,8 +44,8 @@ app.use(routes.apiBaseUri, routes.api(app));
 // Admin specific Routes
 app.use(routes.adminBaseUri, routes.admin(app));
 
-app.use(express.static(path.resolve('public/assets/')))
-app.use(express.static(path.resolve('public/app/views')))
-app.get('*', function(req, res) {
-    res.sendFile(path.resolve('public/index.html'));
-});
+// app.use(express.static(path.resolve('public/assets/')))
+// app.use(express.static(path.resolve('public/app/views')))
+// app.get('*', function(req, res) {
+//     res.sendFile(path.resolve('public/index.html'));
+// });
