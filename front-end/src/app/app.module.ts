@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
   MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     RegisterComponent,
     ManageQuizComponent,
     NotFoundComponent,
-    SampleComponent
+    SampleComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    
     RouterModule.forRoot([
       {
         path: '',
@@ -63,6 +66,10 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
       path: 'sample' ,
       component: SampleComponent
     } ,
+    {
+      path: 'login' ,
+      component: LoginComponent
+    },
     {
       path: '**',
       component: NotFoundComponent
