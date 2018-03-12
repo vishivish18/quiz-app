@@ -8,13 +8,14 @@ import { RegisterComponent } from './register/register.component';
 import { ManageQuizComponent } from './manage-quiz/manage-quiz.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
 
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material Imports
-import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
   MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
@@ -26,7 +27,8 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     RegisterComponent,
     ManageQuizComponent,
     NotFoundComponent,
-    SampleComponent
+    SampleComponent,
+    AddQuestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatExpansionModule,
     MatIconModule,
     MatDatepickerModule,
@@ -62,6 +65,10 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     {
       path: 'sample' ,
       component: SampleComponent
+    } ,
+    {
+      path: 'addques' ,
+      component: AddQuestionsComponent
     } ,
     {
       path: '**',
