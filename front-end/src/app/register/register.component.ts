@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
-import {CheckEmailValidators} from './checkemail.validator';
-import {ConfirmPasswordValidators} from './confirmpassword.validator';
+import {CygrpEmailValidator} from '../customvalidators/cygrpemail.validators';
+import {ConfirmPasswordValidators} from '../customvalidators/confirmpassword.validator';
+
 
 
 @Component({
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
       emailAddress:new FormControl('',
         [
         Validators.required,
-        CheckEmailValidators.onlycygrpallowed
+        CygrpEmailValidator.onlycygrpallowed
 
         ]),
 

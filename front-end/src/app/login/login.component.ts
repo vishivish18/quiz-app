@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
-import {CheckEmailValidators} from './checkemail.validator';
+import {CygrpEmailValidator} from '../customvalidators/cygrpemail.validators';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   emailAddress:new FormControl('',
     [
     Validators.required,
-    CheckEmailValidators.onlycygrpallowed
+    CygrpEmailValidator.onlycygrpallowed
    
     ]),
 

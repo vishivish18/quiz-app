@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
 
 
@@ -45,6 +45,7 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatDialogModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -79,4 +80,14 @@ import { LoginComponent } from './login/login.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+constructor(public dailog:MatDialogModule)
+{
+  
+}
+opendialog()
+{
+  this.dailog.open();
+ }
+}
