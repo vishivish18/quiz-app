@@ -33,7 +33,20 @@ export class AddQuestionsComponent implements OnInit {
       value: 'Technology'
     },
   ];
-
+  difficulties = [
+    {
+      id: 1,
+      value: 'Easy'
+    },
+    {
+      id: 2,
+      value: 'Diifficult'
+    },
+    {
+      id: 3,
+      value: 'Very Difficult'
+    }
+  ];
   technologies = [
     {
       id: 1,
@@ -76,14 +89,14 @@ export class AddQuestionsComponent implements OnInit {
     this.options++;
   }
   submit(f) {
-    if (!this.addQuesForm.controls['optionTwo'].value) {
-      this.addQuesForm.removeControl('optionTwo');
+    if (!this.addQuesForm.controls['options'].controls['optionTwo'].controls['option'].value) {
+      this.addQuesForm.controls['options'].removeControl('optionTwo');
     }
-    if (!this.addQuesForm.controls['optionThree'].value) {
-      this.addQuesForm.removeControl('optionThree');
+    if (!this.addQuesForm.controls['options'].controls['optionThree'].controls['option'].value) {
+      this.addQuesForm.controls['options'].removeControl('optionThree');
     }
-    if (!this.addQuesForm.controls['optionFour'].value) {
-      this.addQuesForm.removeControl('optionFour');
+    if (!this.addQuesForm.controls['options'].controls['optionFour'].controls['option'].value) {
+      this.addQuesForm.controls['options'].removeControl('optionFour');
     }
     if (!this.addQuesForm.controls['tech'].value) {
       this.addQuesForm.removeControl('tech');
@@ -101,11 +114,31 @@ export class AddQuestionsComponent implements OnInit {
     this.addQuesForm = this._formBuilder.group({
       category: ['',  Validators.required],
       tech: ['', ],
+      difficulty: ['', ],
       desc: ['',  Validators.required],
-      optionOne: ['',  Validators.required],
-      optionTwo: ['', ],
-      optionThree: ['', ],
-      optionFour: ['', ],
+      options: this._formBuilder.group({
+        optionOne: this._formBuilder.group({
+          option: ['',  Validators.required],
+          isAnswer: ['', ],
+          isImage: ['', ]
+        }),
+        optionTwo: this._formBuilder.group({
+          option: ['', ],
+          isAnswer: ['', ],
+          isImage: ['', ]
+        }),
+        optionThree: this._formBuilder.group({
+          option: ['', ],
+          isAnswer: ['', ],
+          isImage: ['', ]
+        }),
+        optionFour: this._formBuilder.group({
+          option: ['', ],
+          isAnswer: ['', ],
+          isImage: ['', ]
+        }),
+      }),
+      quesImg: ['', ],
       answer: ['',  Validators.required]
     });
   }
