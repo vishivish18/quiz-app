@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -12,6 +13,8 @@ import {SampleComponent} from './sample/sample.component';
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {HttpWrapperService} from './services/http-wrapper.service';
 
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
@@ -67,9 +70,12 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
       path: '**',
       component: NotFoundComponent
     }
-    ])
+    ]),
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    HttpWrapperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
