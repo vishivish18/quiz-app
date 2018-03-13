@@ -16,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     RegisterComponent,
     ManageQuizComponent,
     NotFoundComponent,
-    SampleComponent
+    SampleComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +45,11 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     MatButtonModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatDialogModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    
     RouterModule.forRoot([
       {
         path: '',
@@ -64,6 +68,10 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
       component: SampleComponent
     } ,
     {
+      path: 'login' ,
+      component: LoginComponent
+    },
+    {
       path: '**',
       component: NotFoundComponent
     }
@@ -72,4 +80,14 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+constructor(public dailog:MatDialogModule)
+{
+  
+}
+opendialog()
+{
+  this.dailog.open();
+ }
+}
