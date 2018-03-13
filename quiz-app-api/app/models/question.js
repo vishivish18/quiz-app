@@ -23,7 +23,7 @@ var team = db.Schema({
     technology: {
         type: String,
     },
-    isA sked: {
+    isAsked: {
         type: Boolean
     },
     createdAt: {
