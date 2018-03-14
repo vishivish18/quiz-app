@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-questions',
@@ -89,21 +89,20 @@ export class AddQuestionsComponent implements OnInit {
     this.options++;
   }
   submit(f) {
-    if (!this.addQuesForm.controls['options'].controls['optionTwo'].controls['option'].value) {
-      this.addQuesForm.controls['options'].removeControl('optionTwo');
+    if (!(<FormArray>this.addQuesForm.controls['options']).controls['optionTwo'].controls['option'].value) {
+      (<FormGroup>this.addQuesForm.controls['options']).removeControl('optionTwo');
     }
-    if (!this.addQuesForm.controls['options'].controls['optionThree'].controls['option'].value) {
-      this.addQuesForm.controls['options'].removeControl('optionThree');
+    if (!(<FormArray>this.addQuesForm.controls['options']).controls['optionThree'].controls['option'].value) {
+      (<FormGroup>this.addQuesForm.controls['options']).removeControl('optionThree');
     }
-    if (!this.addQuesForm.controls['options'].controls['optionFour'].controls['option'].value) {
-      this.addQuesForm.controls['options'].removeControl('optionFour');
+    if (!(<FormArray>this.addQuesForm.controls['options']).controls['optionFour'].controls['option'].value) {
+      (<FormGroup>this.addQuesForm.controls['options']).removeControl('optionFour');
     }
     if (!this.addQuesForm.controls['tech'].value) {
       this.addQuesForm.removeControl('tech');
     }
     console.log(f.value);
-    debugger;
-  }
+    }
 
   ngOnInit() {
     this.category = <HTMLInputElement>document.getElementById('category');
