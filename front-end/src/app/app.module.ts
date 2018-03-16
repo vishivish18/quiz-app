@@ -15,12 +15,14 @@ import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {HttpWrapperService} from './services/http-wrapper.service';
+import {AuthService} from './services/authservice.service';
 
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
   MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { LoginComponent } from './login/login.component';
     ManageQuizComponent,
     NotFoundComponent,
     SampleComponent,
-    LoginComponent
+    LoginComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ import { LoginComponent } from './login/login.component';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+    HttpModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -75,25 +78,25 @@ import { LoginComponent } from './login/login.component';
       component: LoginComponent
     },
     {
+      path:'post',
+      component: PostComponent
+    },
+        {
       path: '**',
       component: NotFoundComponent
+
     }
     ]),
     HttpModule
   ],
   providers: [
-    HttpWrapperService
+    HttpWrapperService,
+    AuthService
   ],
+
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
-constructor(public dailog:MatDialogModule)
-{
-  
-}
-opendialog()
-{
-  this.dailog.open();
- }
+
 }
