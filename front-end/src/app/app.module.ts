@@ -1,26 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
-import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { RegisterComponent } from './register/register.component';
-import { ManageQuizComponent } from './manage-quiz/manage-quiz.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import {SampleComponent} from './sample/sample.component';
-
-import {FormsModule , ReactiveFormsModule} from '@angular/forms';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+//services 
 import {HttpWrapperService} from './services/http-wrapper.service';
-
-// Material Imports
-import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
-  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
+// Components 
+import {AppComponent} from './app.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {HomeComponent} from './home/home.component';
+import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {SampleComponent} from './sample/sample.component';
+import {QuizSelectComponent} from './quiz-select/quiz-select.component';
+// Material Imports
+import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+
 
 
 @NgModule({
@@ -29,8 +28,10 @@ import { LoginComponent } from './login/login.component';
     NavBarComponent,
     RegisterComponent,
     ManageQuizComponent,
+    QuizSelectComponent,
     NotFoundComponent,
     SampleComponent,
+    QuizComponent,
     LoginComponent
   ],
   imports: [
@@ -70,6 +71,10 @@ import { LoginComponent } from './login/login.component';
       path: 'sample' ,
       component: SampleComponent
     } ,
+    {
+      path:'quiz-select',
+      component:QuizSelectComponent
+    },
     {
       path: 'login' ,
       component: LoginComponent
