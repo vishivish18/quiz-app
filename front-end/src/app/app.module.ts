@@ -4,21 +4,25 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-//services 
+
+// services
 import {HttpWrapperService} from './services/http-wrapper.service';
-// Components 
+
+// Components
 import {AppComponent} from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
-import {HomeComponent} from './home/home.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
 import {QuizSelectComponent} from './quiz-select/quiz-select.component';
+import { CategorySelectComponent } from './category-select/category-select.component';
+
 // Material Imports
-import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule,
+        MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 
 
@@ -32,7 +36,8 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
     NotFoundComponent,
     SampleComponent,
     QuizComponent,
-    LoginComponent
+    LoginComponent,
+    CategorySelectComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,6 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
     RouterModule.forRoot([
       {
         path: '',
@@ -72,14 +76,16 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
       component: SampleComponent
     } ,
     {
-      path:'quiz-select',
-      component:QuizSelectComponent
+      path: 'quiz-select',
+      component: QuizSelectComponent
     },
     {
       path: 'login' ,
       component: LoginComponent
-    },
-    {
+    }, {
+      path: 'category' ,
+      component : CategorySelectComponent
+    }, {
       path: '**',
       component: NotFoundComponent
     }
@@ -93,12 +99,9 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
 })
 
 export class AppModule {
-constructor(public dailog:MatDialogModule)
-{
-  
+constructor(public dailog: MatDialogModule) {
 }
-opendialog()
-{
-  this.dailog.open();
- }
+// opendialog() {
+//   this.dailog.open();
+//  }
 }
