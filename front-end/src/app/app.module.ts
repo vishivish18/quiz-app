@@ -16,10 +16,21 @@ import {HomeComponent} from './home/home.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
-import {QuizSelectComponent} from './quiz-select/quiz-select.component';
-// Material Imports
-import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
+import {FormsModule , ReactiveFormsModule} from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {HttpWrapperService} from './services/http-wrapper.service';
+import {AuthService} from './services/authservice.service';
+
+// Material Imports
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
+  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
+import { LoginComponent } from './login/login.component';
+import { PostComponent } from './post/post.component';
+import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 
 
 @NgModule({
@@ -31,8 +42,9 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
     QuizSelectComponent,
     NotFoundComponent,
     SampleComponent,
-    QuizComponent,
-    LoginComponent
+    LoginComponent,
+    PostComponent
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +65,7 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+    HttpModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -80,25 +92,25 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
       component: LoginComponent
     },
     {
+      path:'post',
+      component: PostComponent
+    },
+        {
       path: '**',
       component: NotFoundComponent
+
     }
     ]),
     HttpModule
   ],
   providers: [
-    HttpWrapperService
+    HttpWrapperService,
+    AuthService
   ],
+
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
-constructor(public dailog:MatDialogModule)
-{
-  
-}
-opendialog()
-{
-  this.dailog.open();
- }
+
 }
