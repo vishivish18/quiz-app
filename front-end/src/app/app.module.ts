@@ -17,13 +17,22 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
-import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 import { CategorySelectComponent } from './category-select/category-select.component';
 
-// Material Imports
-import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule,
-        MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {HttpWrapperService} from './services/http-wrapper.service';
+import {AuthService} from './services/authservice.service';
+
+// Material Imports
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
+  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
+import { LoginComponent } from './login/login.component';
+import { PostComponent } from './post/post.component';
+import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 
 
 @NgModule({
@@ -38,6 +47,7 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     QuizComponent,
     LoginComponent,
     CategorySelectComponent
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +68,7 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -85,7 +96,12 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     }, {
       path: 'category' ,
       component : CategorySelectComponent
-    }, {
+    },
+    {
+      path:'post',
+      component: PostComponent
+    },
+      {
       path: '**',
       component: NotFoundComponent
     }
@@ -93,8 +109,10 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     HttpModule
   ],
   providers: [
-    HttpWrapperService
+    HttpWrapperService,
+    AuthService
   ],
+
   bootstrap: [AppComponent]
 })
 
