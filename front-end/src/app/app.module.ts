@@ -4,18 +4,20 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-//services 
+
+// services
 import {HttpWrapperService} from './services/http-wrapper.service';
-// Components 
+
+// Components
 import {AppComponent} from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
-import {HomeComponent} from './home/home.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
+import { CategorySelectComponent } from './category-select/category-select.component';
 
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 
@@ -42,9 +44,10 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     QuizSelectComponent,
     NotFoundComponent,
     SampleComponent,
+    QuizComponent,
     LoginComponent,
+    CategorySelectComponent
     PostComponent
-    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -84,21 +87,23 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
       component: SampleComponent
     } ,
     {
-      path:'quiz-select',
-      component:QuizSelectComponent
+      path: 'quiz-select',
+      component: QuizSelectComponent
     },
     {
       path: 'login' ,
       component: LoginComponent
+    }, {
+      path: 'category' ,
+      component : CategorySelectComponent
     },
     {
       path:'post',
       component: PostComponent
     },
-        {
+      {
       path: '**',
       component: NotFoundComponent
-
     }
     ]),
     HttpModule
@@ -112,5 +117,9 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 })
 
 export class AppModule {
-
+constructor(public dailog: MatDialogModule) {
+}
+// opendialog() {
+//   this.dailog.open();
+//  }
 }
