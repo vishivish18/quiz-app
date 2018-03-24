@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AddNewTeamDialogComponent } from '../add-new-team-dialog/add-new-team-dialog.component';
 
 @Component({
   selector: 'app-category-select',
@@ -21,6 +22,11 @@ categorylist = [{
   constructor() {
   }
 
+  // addNewCategory() : void {
+  //   // let dialogBoxRef = this._dialog.open(AddNewTeamDialogComponent ,{
+  //   //   width : 
+  //   // })
+  // }
   ngOnInit() {
   }
 

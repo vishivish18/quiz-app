@@ -25,16 +25,14 @@ export class RegisterComponent implements OnInit {
       id : 2 ,
       value : 'Participant'}];
 
-    form=new FormGroup({
-      emailAddress:new FormControl('',
-        [
+    form= new FormGroup({
+      emailAddress: new FormControl('', [
         Validators.required,
         CygrpEmailValidator.onlycygrpallowed
 
         ]),
 
-      password:new FormControl('',
-        [
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(7),
         Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#@$?!_])[a-zA-Z0-9#@$?!_]+$/)

@@ -19,13 +19,13 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
 import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 import { CategorySelectComponent } from './category-select/category-select.component';
+import { TeamListComponent } from './team-list/team-list.component';
+import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/add-new-team-dialog.component';
 
 // Material Imports
-import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule,
-        MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
-
-
-
+import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, MatCardModule,
+        MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule,
+        MatNativeDateModule, MatChipsModule, MatDialog } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,9 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     SampleComponent,
     QuizComponent,
     LoginComponent,
-    CategorySelectComponent
+    CategorySelectComponent,
+    TeamListComponent,
+    AddNewTeamDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,8 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    MatChipsModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -86,6 +90,9 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
       path: 'category' ,
       component : CategorySelectComponent
     }, {
+      path: 'team',
+      component: TeamListComponent
+    }, {
       path: '**',
       component: NotFoundComponent
     }
@@ -95,13 +102,11 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
   providers: [
     HttpWrapperService
   ],
+  entryComponents: [AddNewTeamDialogComponent],
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
-constructor(public dailog: MatDialogModule) {
+constructor() {
 }
-// opendialog() {
-//   this.dailog.open();
-//  }
 }
