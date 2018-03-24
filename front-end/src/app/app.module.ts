@@ -17,15 +17,20 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
-import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 import { CategorySelectComponent } from './category-select/category-select.component';
 import { TeamListComponent } from './team-list/team-list.component';
+import { PostComponent } from './post/post.component';
+import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/add-new-team-dialog.component';
 
 // Material Imports
 import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, MatCardModule,
         MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule,
         MatNativeDateModule, MatChipsModule, MatDialog } from '@angular/material';
+
+import {AuthService} from './services/authservice.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,8 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     LoginComponent,
     CategorySelectComponent,
     TeamListComponent,
-    AddNewTeamDialogComponent
+    AddNewTeamDialogComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +68,7 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -92,15 +99,21 @@ import {MatSelectModule , MatDialogModule, MatButtonModule, MatCheckboxModule, M
     }, {
       path: 'team',
       component: TeamListComponent
-    }, {
-      path: '**',
-      component: NotFoundComponent
+    },
+    {
+      path: 'post',
+      component: PostComponent
+    },
+      {
+        path: '**',
+        component: NotFoundComponent
     }
     ]),
     HttpModule
   ],
   providers: [
-    HttpWrapperService
+    HttpWrapperService,
+    AuthService
   ],
   entryComponents: [AddNewTeamDialogComponent],
   bootstrap: [AppComponent]
