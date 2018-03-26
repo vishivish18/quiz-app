@@ -17,7 +17,11 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
+<<<<<<< HEAD
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
+=======
 import { CategorySelectComponent } from './category-select/category-select.component';
+>>>>>>> 54131abe5d6d1715376d45d7b918d2fd7c603840
 
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 
@@ -27,7 +31,7 @@ import {HttpWrapperService} from './services/http-wrapper.service';
 import {AuthService} from './services/authservice.service';
 
 // Material Imports
-import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
   MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
@@ -44,10 +48,15 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     QuizSelectComponent,
     NotFoundComponent,
     SampleComponent,
+<<<<<<< HEAD
+    AddQuestionsComponent,
+    LoginComponent
+=======
     QuizComponent,
     LoginComponent,
     CategorySelectComponent
     PostComponent
+>>>>>>> 54131abe5d6d1715376d45d7b918d2fd7c603840
   ],
   imports: [
     BrowserModule,
@@ -63,12 +72,16 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatExpansionModule,
     MatDialogModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+<<<<<<< HEAD
+=======
     HttpModule,
+>>>>>>> 54131abe5d6d1715376d45d7b918d2fd7c603840
     RouterModule.forRoot([
       {
         path: '',
@@ -87,9 +100,16 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
       component: SampleComponent
     } ,
     {
+<<<<<<< HEAD
+
+      path: 'addques' ,
+      component: AddQuestionsComponent
+    } ,
+=======
       path: 'quiz-select',
       component: QuizSelectComponent
     },
+>>>>>>> 54131abe5d6d1715376d45d7b918d2fd7c603840
     {
       path: 'login' ,
       component: LoginComponent
@@ -119,7 +139,13 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 export class AppModule {
 constructor(public dailog: MatDialogModule) {
 }
+<<<<<<< HEAD
+opendialog() {
+  this.dailog.open();
+ }
+=======
 // opendialog() {
 //   this.dailog.open();
 //  }
+>>>>>>> 54131abe5d6d1715376d45d7b918d2fd7c603840
 }
