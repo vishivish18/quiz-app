@@ -17,7 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
     ManageQuizComponent,
     NotFoundComponent,
     SampleComponent,
-    AddQuestionsComponent
+    AddQuestionsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
     MatCheckboxModule,
     MatRadioModule,
     MatExpansionModule,
+    MatDialogModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -67,9 +70,14 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
       component: SampleComponent
     } ,
     {
+
       path: 'addques' ,
       component: AddQuestionsComponent
     } ,
+    {
+      path: 'login' ,
+      component: LoginComponent
+    },
     {
       path: '**',
       component: NotFoundComponent
@@ -79,4 +87,11 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+constructor(public dailog: MatDialogModule) {
+}
+opendialog() {
+  this.dailog.open();
+ }
+}
