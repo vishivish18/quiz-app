@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
-    constructor(?private http: Http, private _router: Router) {
+    constructor(private http: Http, private _router: Router) {
     }
 
     login(credentials) {
@@ -39,7 +39,7 @@ export class AuthService {
 
 
     isLoggedIn() {
-        return tokenNotExpired();
+        // return tokenNotExpired();
 
     }
 
@@ -49,7 +49,7 @@ export class AuthService {
             console.log(request);
             console.log(userData);
             alert('REGISTRATION SUCCESSFUL');
-            this.sampleResponse = request;
+            // this.sampleResponse = request;
             this._router.navigate(['/sample']);
         });
     }
