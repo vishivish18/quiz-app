@@ -34,7 +34,7 @@ apiRoutes = function(router) {
 
      router.post('/category', api.category.create);
      router.get('/category/edit/:_id', api.category.show);
-     router.post('/category/update/:_id', api.category.update);
+    // router.post('/category/update/:_id', api.category.update);
      router.get('/category', api.category.list);
 
 
