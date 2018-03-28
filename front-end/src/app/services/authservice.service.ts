@@ -40,7 +40,7 @@ export class AuthService {
 
 
     isLoggedIn() {
-        return tokenNotExpired();
+        // return tokenNotExpired();
 
     }
 
@@ -51,6 +51,7 @@ export class AuthService {
             console.log(userData);
             alert('REGISTRATION SUCCESSFUL');
             // this.Response = request;
+            // this.sampleResponse = request;
             this._router.navigate(['/sample']);
         });
     }
