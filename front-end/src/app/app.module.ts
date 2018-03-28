@@ -17,17 +17,20 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
+
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
+
 import { CategorySelectComponent } from './category-select/category-select.component';
+
+import {AuthService} from './services/authservice.service';
 import { TeamListComponent } from './team-list/team-list.component';
 import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/add-new-team-dialog.component';
 
 // Material Imports
-import {MatSelectModule , MatFormField, MatDialogModule, MatButtonModule, MatCheckboxModule, MatCardModule,
-        MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule,
-        MatNativeDateModule, MatChipsModule, MatDialog, MatRadioModule } from '@angular/material';
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
+  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
 
-import {AuthService} from './services/authservice.service';
 import { PostComponent } from './post/post.component';
 import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 
@@ -41,9 +44,10 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     NotFoundComponent,
     SampleComponent,
     AddQuestionsComponent,
-    LoginComponent
     QuizComponent,
+    LoginComponent,
     CategorySelectComponent,
+    PostComponent,
     TeamListComponent,
     AddNewTeamDialogComponent,
     PostComponent
@@ -92,6 +96,7 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
       path: 'addques' ,
       component: AddQuestionsComponent
     } ,
+    {
       path: 'quiz-select',
       component: QuizSelectComponent
     },
@@ -128,7 +133,8 @@ export class AppModule {
 constructor() {
 }
 
-opendialog() {
-  this.dailog.open();
- }
+// opendialog() {
+//   this.dailog.open();
+//  }
+
 }
